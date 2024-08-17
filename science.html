@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style link rel="science.css"></style>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="sports.css">
+</head>
+<body>
+    <p  >ANSWER THE FOLLOWING QUESTIONS</p>
+    <div class="container">
+
+        <div class="block1" data-answer="Hockey">
+            <h1>QUES-1-The trophy ‘Aga Khan Cup’ is related to …?</h1>  
+            <div class="option">
+                <input type="radio" class="big-radio" id="option1" name="gk1" value="Hockey">
+                <label for="option1">Hockey</label>
+            </div>
+            <div class="option">
+                <input type="radio" class="big-radio" id="option2" name="gk1" value="Badminton">
+                <label for="option2">Badminton</label>
+            </div>
+            <div class="option">
+                <input type="radio" class="big-radio" id="option3" name="gk1" value="Foot Ball">
+                <label for="option3">Foot Ball</label>
+            </div>
+            <div class="option">
+                <input type="radio" class="big-radio" id="option4" name="gk1" value="Basket Ball">
+                <label for="option4">Basket Ball</label>
+            </div>
+        </div>
+
+        <div class="block1" data-answer="Atlantic">
+            <h1>QUES-2-Which among the following oceans looks like the English alphabet ‘S?’</h1>
+            <div class="option">
+                <input type="radio" class="big-radio" id="option11" name="gk2" value="Atlantic">
+                <label for="option11">Atlantic</label>
+            </div>
+            <div class="option">
+                <input type="radio" class="big-radio" id="option22" name="gk2" value="Pacific">
+                <label for="option22">Pacific</label>
+            </div>
+            <div class="option">
+                <input type="radio" class="big-radio" id="option33" name="gk2" value="Indian">
+                <label for="option33">Inidan</label>
+            </div>
+            <div class="option">
+                <input type="radio" class="big-radio" id="option44" name="gk2" value="Arctic">
+                <label for="option44">Arctic</label>
+            </div>
+        </div>
+
+        <div class="block1" data-answer="Nawang Gombu">
+            <h1> QUES-4-…………………… was the first man who climbed on Mt. Everest twice.?</h1>
+            <div class="option">
+                <input type="radio" class="big-radio" id="option111" name="gk3" value="Nawang Gombu">
+                <label for="option111">Nawang Gombu</label>
+            </div>
+            <div class="option">
+                <input type="radio" class="big-radio" id="option222" name="gk3" value="Sungdare Sherpa">
+                <label for="option222">Sungdare Sherpa</label>
+            </div>
+            <div class="option">
+                <input type="radio" class="big-radio" id="option333" name="gk3" value="Lhakpa Sherpa">
+                <label for="option333">Lhakpa Sherpa</label>
+            </div>
+            <div class="option">
+                <input type="radio" class="big-radio" id="option444" name="gk3" value="Pemba Dorje">
+                <label for="option444">Pemba Dorje</label> 
+            </div>
+        </div>
+
+        <div class="block1" data-answer="Range">
+            <h1>QUES-4-The playing area of Archery is known as …?</h1>
+            <div class="option">
+                <input type="radio" class="big-radio" id="option1111" name="gk4" value="Rink">
+                <label for="option1111">Rink</label>
+            </div>
+            <div class="option">
+                <input type="radio" class="big-radio" id="option2222" name="gk4" value="Track">
+                <label for="option2222">Track</label>
+            </div>
+            <div class="option">
+                <input type="radio" class="big-radio" id="option3333" name="gk4" value="Ring">
+                <label for="option3333">Ring</label>
+            </div>
+            <div class="option">
+                <input type="radio" class="big-radio" id="option4444" name="gk4" value="Range">
+                <label for="option4444">Range</label>
+            </div>
+        </div>
+
+        <div class="block1" data-answer="Maharashtra">
+            <h1>QUES-5-Tower of Silence is located in …?</h1>
+            <div class="option">
+                <input type="radio" class="big-radio" id="option11111" name="gk5" value="Maharashtra">
+                <label for="option11111">Maharashtra</label>
+            </div>
+            <div class="option">
+                <input type="radio" class="big-radio" id="option22222" name="gk5" value="Rajasthan">
+                <label for="option22222">Rajasthan</label>
+            </div>
+            <div class="option">
+                <input type="radio" class="big-radio" id="option33333" name="gk5" value="Jammu and Kashmir">
+                <label for="option33333">Jammu and Kashmir</label>
+            </div>
+            <div class="option">
+                <input type="radio" class="big-radio" id="option44444" name="gk5" value="Tamil Nadu">
+                <label for="option44444">Tamil Nadu</label>
+            </div>
+        </div>
+    </div>
+    <button onclick="submitQuiz()">Submit Quiz</button>
+    <div id="output" class="output"></div>
+<script>
+            function submitQuiz() {
+            const questions = document.querySelectorAll('.block1');
+            let score = 0;
+            let results = [];
+
+            questions.forEach((question, index) => {
+                const selectedOption = question.querySelector('input[type="radio"]:checked');
+                const correctAnswer = question.getAttribute('data-answer');
+                const questionNumber = index + 1;
+
+                if (selectedOption) {
+                    if (selectedOption.value === correctAnswer) {
+                        score++;
+                        results.push(`Question ${questionNumber}: Correct`);
+                    } else {
+                        results.push(`Question ${questionNumber}: Incorrect (Correct answer: ${correctAnswer})`);
+                    }
+                } else {
+                    results.push(`Question ${questionNumber}: No answer selected (Correct answer: ${correctAnswer})`);
+                }
+            });
+
+            const output = document.getElementById('output');
+            output.innerHTML = `Your score is ${score} out of ${questions.length}<br><br>`;
+            output.innerHTML += results.join('<br>');
+        }
+</script>
+</body>
+</html>
+
+</body>
+</html>
